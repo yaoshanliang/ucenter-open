@@ -14,7 +14,7 @@ Instead, edit the stylus (.styl) files and compile it to CSS on your machine.
 
 /** Site header */
 .site-header { border-bottom: 1px solid #e8e8e8; background-color: #f5f5f5; min-height: 56px; position: relative; }
-.site-header .site-title { font-size: 26px; line-height: 56px; letter-spacing: -1px; margin-bottom: 0; float: left;font-weight: 700; }
+.site-header .site-title { font-size: 26px; line-height: 56px; letter-spacing: -1px; margin-bottom: 0; float: left;font-weight: 700;}
 .site-header .site-title img  { height: 46px; margin-bottom: -12px; width: 180px;padding-left: 21px;}
 .site-header .site-title, .site-header .site-title:visited { color: #000; }
 .site-header .site-title:hover { text-decoration: none; }
@@ -23,7 +23,7 @@ Instead, edit the stylus (.styl) files and compile it to CSS on your machine.
   .site-header .site-title { line-height: 46px; font-size: 20px; }
   .site-header .site-title img { height: 25px; }
   .site-header .title-divider { line-height: 46px; font-size: 20px; } }
-
+.site-title {width: 250px;}
 .content pre .lang-js{
 transition:height 5s;
 /*overflow-y:hidden*/
@@ -788,14 +788,14 @@ a.big.button:hover:visited {
 }
 @media (min-width: 769px) {
   .content-root {
-    padding-left: 230px;
+    padding-left: 250px;
   }
   .menubar {
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 230px;
+    width: 250px;
     border-right: solid 1px #dfe2e7;
   }
   .menubar.fixed {

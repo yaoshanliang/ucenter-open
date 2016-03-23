@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1" />
 <meta name="viewport" content="width=device-width">
 
-<title>OAuth</title>
+<title>用户中心-开放平台</title>
 
 <!-- Flatdoc -->
 <script src='support/vendor/jquery.js'></script>
@@ -20,7 +20,7 @@
 <!-- Initializer -->
 <script>
 Flatdoc.run({
-fetcher: Flatdoc.file('oauth.md')
+fetcher: Flatdoc.file('api.md')
 });
 </script>
 
@@ -28,18 +28,14 @@ fetcher: Flatdoc.file('oauth.md')
 </head>
 <body role='flatdoc'>
 
-<div class='header'>
-<div class='left'>
-<h1> <a class="site-title" href="//open.coding.net">
-<img src="open.coding.png">
-</a></h1>
-<ul>
-<li><a href='openapi/'>OpenAPI</a></li>
-<li><a href='oauth.html'>OAuth</a></li>
-<li><a href='webhook.html'>Webhook</a></li>
-</ul>
-</div>
-</div>
+  <div class='header'>
+    <div class='left'>
+      <ul>
+        <li class="site-title"><a href="/">用户中心--开放平台</a></li>
+        <li><a href='api.html'>API</a></li>
+      </ul>
+    </div>
+  </div>
 
 <div class='content-root'>
 <div class='menubar'>
@@ -61,21 +57,10 @@ window.onload = function () {
 		}
 	};
 	setTimeout(aas, 500);
-} 
+}
 
 </script>
 
-<!-- Google Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
- (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
- m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
- })(window,document,'script','//coding.net/static/cb990796e9329ec26a433008ac440ab4.js','ga');
-
-ga('create', 'UA-65952334-1', 'auto');
-ga('send', 'pageview');
-</script>
-<!-- -->
 </body>
 
 </html>
