@@ -10,10 +10,13 @@
 
 
 
-# 1. 接入指南
+## 1. 接入指南
 
-
-### OAuth
+### 1.1 创建应用
+### 1.2 调用API
+### 1.3 接入用户
+### 1.4 接入权限、角色、日志等
+### 1.5 测试上线
 
 OAuth 协议为用户资源的授权提供了一个安全的、开放而又简易的标准。OAuth2 允许第三方开发者在用户授权的前提下访问在用户在 UCenter 存储的各种信息。而这种授权无需用户提供用户名和密码提供给该第三方网站。
 
@@ -25,82 +28,20 @@ OAuth 协议为用户资源的授权提供了一个安全的、开放而又简�
 [OAuth 详情 >][oauth]
 
 
-# 2. 使用案例
+## 2. Q&A
 
-### OpenAPI
-为方便您的测试，我们用 Swagger Ui 构建了可执行的文档，您可以在线输入参数进行测试，如下图：
+### 2.1 应用中的用户怎么来？
 
-![](https://dn-coding-net-production-pp.qbox.me/e8653816-e4da-48f5-b613-74600eda8b94.png)
+自行注册，申请某个应用的访问权限，待应用管理员允许后方可登陆访问；
+应用管理员从用户库中选择可以访问的用户，用户库中不存在时可添加(导入)用户；
 
-绝大部分接口的响应类型为 application/json。此时，响应的JSON对象中都包含一个 code 字段，这用于标识请求成功与否。
+### 2.2 应用中的用户权限怎么管理？
 
+应用管理员在用户中心的后台管理中选择可访问的用户，分配相应的角色。
 
-code 为 0，此时成功执行了请求。 对应的数据位于data字段。 它的具体类型跟接口有关。
-``` html
-{"code": 0, "data": []}
-```
+### 2.3 一个用户可以多个角色吗？
 
-code 不为 0，此时请求未能正常完成。 对应的错误信息位于msg字段。 它的类型为object。
-``` html
-{"code": 999, "msg": {"j_captcha": "缺少验证码"}}
-```
-
-您也可以使用命令测试，如以查看用户是否存在为例，{"code":0} 即为存在：
-``` bash
-$ curl -i https://coding.net/api/account/check?key=niuniu@yahoo.com
-
-HTTP/1.1 200 OK
-Server: nginx
-Date: Tue, 11 Aug 2015 07:24:37 GMT
-Content-Type: application/json;charset=UTF-8
-Content-Length: 10
-Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS
-Access-Control-Max-Age: 3600
-Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept
-Access-Control-Allow-Credentials: true
-Cache-Control: no-cache, no-store
-Set-Cookie: sid=ae025dee-d1d4-4470-a162-399853430069; Domain=.coding.net; Path=/
-; Secure; HttpOnly
-Set-Cookie: sid=; Path=/; Max-Age=0; Secure; HttpOnly
-
-{"code":0}
-```
-
-
-[OpenAPI 详情 >][openapi]
-
-### OAuth
-
-注册应用无需审核即可使用授权。当用户同意并授权应用访问 Coding 数据后。
-可以使用 OAuth 相关的 API 获取用户数据。
-
-``` bash
-GET /api/account/current_user
-```
-
-[OAuth 详情 >][oauth]
-
-
-### Webhook
-
-利用 Webhook 可实现如项目演示自动更新。(演示内容自动在 push 后生成新的页面）
-
-其步骤如下：
-
-（A）用户打开客户端以后，客户端要求用户给予授权。
-
-（B）用户同意给予客户端授权。
-
-（C）客户端使用上一步获得的授权，向认证服务器申请令牌。
-
-（D）认证服务器对客户端进行认证以后，确认无误，同意发放令牌。
-
-（E）客户端使用令牌，向资源服务器申请获取资源。
-
-（F）资源服务器确认令牌无误，同意向客户端开放资源。
-
-
-[Webhook 详情 >][webhook]
+可以。可以在应用中进行角色的切换，应用管理员需设置用户的默认角色；如：应用开发者也是应用管理员的角色。
 
 
 
