@@ -13,12 +13,24 @@
 ## 1. 接入指南
 
 ### 1.1 创建应用
+在**应用 -> 创建应用**页面添加应用，注册要接入 UCenter 的应用。
+
+其中**回调地址**是用户授权后，UCenter 回调到应用，并且回传**授权码**的地址。
+
+保存后，会返回到应用列表。
+
+此时再查看应用，会生成 `client id` 和 `client secret`。
+
+保存 `client id` 和 `client secret`，以便后续认证使用。
+
 ### 1.2 调用API
+
 ### 1.3 接入用户
+
 ### 1.4 接入权限、角色、日志等
+
 ### 1.5 测试上线
 
-OAuth 协议为用户资源的授权提供了一个安全的、开放而又简易的标准。OAuth2 允许第三方开发者在用户授权的前提下访问在用户在 UCenter 存储的各种信息。而这种授权无需用户提供用户名和密码提供给该第三方网站。
 
 #### 网站或应用接入 Ucenter 开放平台后，您将获得：
 
@@ -47,6 +59,6 @@ OAuth 协议为用户资源的授权提供了一个安全的、开放而又简�
 
 [dist]:https://coding.net/u/coding/open
 [openapi]:/openapi
-[oauth]:/oauth.html
+[oauth]:/api.html
 [webhook]:/webhook.html
 [opencoding]:https://coding.net/u/coding/open
