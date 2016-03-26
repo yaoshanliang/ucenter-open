@@ -2,12 +2,16 @@
 
 ## 1.登陆
 
-登陆采用 OAuth2 协议，改协议为用户资源的授权提供了一个安全的、开放而又简易的标准。OAuth2 允许第三方开发者在用户授权的前提下访问在用户在 UCenter 存储的各种信息。而这种授权无需用户提供用户名和密码提供给该第三方网站。
-![图片](https://dn-coding-net-production-pp.qbox.me/e3dc0e6d-6bc6-481f-9d7e-42d351d95ab3.png)
+登陆采用 OAuth2 协议，该协议为用户资源的授权提供了一个安全的、开放而又简易的标准。OAuth2 允许第三方开发者在用户授权的前提下访问在用户在 UCenter 存储的各种信息。
 
-### 1.1 授权流程
+*注：关于OAuth2 的详细介绍参考: [理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)*
 
-+ 将用户引导到 UCenter 第三方登录页面上。如右侧：
+![图片](images/ucenter-oauth2.0.png)
+
+
+### 1.1 UCenter统一身份认证
+
++ 将用户引导到 UCenter 第三方登录页面上。如下链接：
 
 ```
 https://ucenter.szjlxh.com/oauth/authorize?client_id={client_id}
@@ -15,16 +19,14 @@ https://ucenter.szjlxh.com/oauth/authorize?client_id={client_id}
 ```
 + 如用户未登录 UCenter，跳转到登录页面
 
-![图片](https://dn-coding-net-production-pp.qbox.me/1400b79c-059f-4ea3-9c9e-c3e0a564ca3a.png)
+![图片](images/ucenter-oauth-login.png)
 
 + 用户登录，并对应用请求的 `scope` 进行授权。
 
-![图片](https://dn-coding-net-production-pp.qbox.me/fc41b43a-2225-41f7-86f1-39b1e96d078e.png)
+![图片](images/ucenter-oauth-authorize.png)
 
 
 + 授权通过，Ucenter 会将**授权码**回传给应用在 Coding 注册的回调地址`（http://xxx.com/callback?code=xxx）`，应用直接获取授权码 `code` 即可。
-
-![图片](https://dn-coding-net-production-pp.qbox.me/5381b5f2-002b-4e79-bdba-a45d79ea2e88.png)
 
 + 应用向 UCenter 的 Token Endpoint 发送请求：
 
@@ -47,31 +49,70 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 }
 ```
 
-+ Response body 中的 `code` 为 0，表示正常接收请求。如果 `code` 为 1，表示请求异常，请参照 `msg` 中的返回信息进行处理。
++ Response body 中的 `code` 为 1，表示正常接收请求。如果 `code` 非 1，表示请求异常，请参照 `message` 中的返回信息进行处理。
 
 + 使用 `access_token` 访问受保护的资源
 `https://ucenter.szjlxh.com/api/user/info?access_token={access_token}`
 
-### 1.2 授权方式
+### 1.2 授权模式
+
+* 客户端必须得到用户的授权(authorization_grant)，才能获得令牌(access_token)。UCenter 提供三种授权方式:
+
+##### 1.2.1 授权码模式(authorization_code)
+* 1.1 **UCenter统一身份认证**中用到的就是授权码模式，开发者填写对应的`client_id`, `client_secret`, `redirect_uri`即可调用统一身份认证。
+
+##### 1.2.3 密码模式(password)
+* 密码模式用于非PC或WAP端的身份认证，如：APP登陆。
+
+`POST /api/oauth/accessToken`
+
+| 参数 | 类型 | 必填 | 说明 |
+| ----- | ----- | ---- | ----- |
+| client_id | string | Y | client_id |
+| client_secret | string | Y | client_secret |
+| grant_type | string | Y | 值 = password |
+| username | string | Y | 用户名/手机号/邮箱 |
+| password | string | Y | 密码 |
+
+**Response:（点击代码展开）**
+```js
+{
+    "code": 1,
+    "message": "获取access_token成功",
+    "data": {
+        "access_token": "JQrKik8HTWaW2G2Aq2QKh9hYGK0Ntfv4Tc42rpJA",
+        "token_type": "Bearer",
+        "expires_in": 3600,
+        "refresh_token": "JsFrLIQfKZ4YVba5qUS2q1UyXE24pJCkO5NC9i3I"
+    }
+}
+```
+
+##### 1.2.4 客户端模式(client_credentials)
+* 客户端模式用于未登陆时的接口授权，此时只能访问不需要登陆的接口，如：注册时的发送验证码。
+
+`POST /api/oauth/accessToken`
+
+| 参数 | 类型 | 必填 | 说明 |
+| ----- | ----- | ---- | ----- |
+| client_id | string | Y | client_id |
+| client_secret | string | Y | client_secret |
+| grant_type | string | Y | 值 = client_credentials |
+
+**Response:（点击代码展开）**
+```js
+{
+    "code": 1,
+    "message": "获取access_token成功",
+    "data": {
+        "access_token": "zmRIEouBx0YzoDgRrOxb1alTx3GiCOAFOAyUrJd5",
+        "token_type": "Bearer",
+        "expires_in": 3600
+    }
+}
+```
 
 ## 2. 用户
-
-|scope 名称| 说明 | 授权 Action 默认只读 |
-|:--:|:--:|:-----:|
-| user | 授权获取用户信息（用户名称，头像，tag，email，动态 ）| 读( Read ) |
-| user:email | 授权获取用户的email ）| 读( Read ) |
-| notification | 授权读取通知信息，包含email通知 | 读写( ReadWrite ) |
-| social | 授权读取冒泡列表，好友列表 | 读( Read ) |
-| social:tweet | 授权发送冒泡，冒泡操作（点赞、评论、删除）| 读写( ReadWrite ) |
-| social:message |	授权读取、发送私信、私信语音 | 读写( ReadWrite ) |
-| project | 授权项目信息、项目列表，仓库信息，公钥列表、成员，任务列表 | 读( Read ) |
-| project:members | 授权项目管理者增、删、改项目成员，退出项目 | 读写( ReadWrite )|
-| project:task | 授权任务操作，包含增、删、改 | 读写( ReadWrite ) |
-| project:file | 授权文件，包含增、删、改 | 读写( ReadWrite ) |
-| project:depot | 获取 commit 信息，分支操作，MR/PR, LineNotes, fork, webhook 等操作 |	读写( ReadWrite ) |
-| project:key |	授权操作部署公钥、个人公钥	| 读写( ReadWrite ) |
-
-
 
 ### 2.1 获取用户信息
 `GET   /api/user/info`
@@ -287,5 +328,6 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
     "code": 1,
     "message": "验证成功",
     "data": {
+    }
 }
 ```

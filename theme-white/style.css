@@ -24,6 +24,7 @@ Instead, edit the stylus (.styl) files and compile it to CSS on your machine.
   .site-header .site-title img { height: 25px; }
   .site-header .title-divider { line-height: 46px; font-size: 20px; } }
 .site-title {width: 250px;}
+.site-menu {font-size: 20px !important;}
 .content pre .lang-js{
 transition:height 5s;
 /*overflow-y:hidden*/
