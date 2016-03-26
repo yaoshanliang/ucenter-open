@@ -6,7 +6,7 @@
 
 *注：关于OAuth2 的详细介绍参考: [理解OAuth 2.0](http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html)*
 
-![图片](https://dn-coding-net-production-pp.qbox.me/e3dc0e6d-6bc6-481f-9d7e-42d351d95ab3.png)
+![图片](images/ucenter-oauth2.0.png)
 
 
 ### 1.1 UCenter统一身份认证
@@ -19,11 +19,11 @@ https://ucenter.szjlxh.com/oauth/authorize?client_id={client_id}
 ```
 + 如用户未登录 UCenter，跳转到登录页面
 
-![图片](http://7xs8fy.com1.z0.glb.clouddn.com/ucenter-oauth-login.png)
+![图片](images/ucenter-oauth-login.png)
 
 + 用户登录，并对应用请求的 `scope` 进行授权。
 
-![图片](http://7xs8fy.com1.z0.glb.clouddn.com/ucenter-oauth-authorize.png)
+![图片](images/ucenter-oauth-authorize.png)
 
 
 + 授权通过，Ucenter 会将**授权码**回传给应用在 Coding 注册的回调地址`（http://xxx.com/callback?code=xxx）`，应用直接获取授权码 `code` 即可。
