@@ -331,3 +331,32 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
     }
 }
 ```
+
+
+## 6. 邮件
+
+## 6. 文件
+
+## 7. 日志
+
+### 7.1 记录日志
+
+`POST   /api/log`
+
+| 参数 | 类型 | 必填 | 说明 |
+| ----- | ----- | ---- | ----- |
+| acess_token | string | Y | access_token |
+| type | string | Y | 值 = A/D/S/U 其一|
+| title | string | Y | 显示标题 |
+| data | string | Y | 记录数据 |
+| sql | string | N | 记录SQL |
+
+**Response:（点击代码展开）**
+```js
+{
+    "code": 1,
+    "message": "记录成功",
+    "data": {
+    }
+}
+```
