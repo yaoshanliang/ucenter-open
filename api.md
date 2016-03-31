@@ -335,11 +335,56 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 
 ## 6. 邮件
 
-## 6. 文件
+### 6.1 发送邮件
 
-## 7. 日志
+`POST   /api/email`
 
-### 7.1 记录日志
+| 参数 | 类型 | 必填 | 说明 |
+| ----- | ----- | ---- | ----- |
+| acess_token | string | Y | access_token |
+| email | string | Y | 收件箱 |
+| subject | string | Y | 主题 |
+| content | string | Y | 内容 |
+
+**Response:（点击代码展开）**
+```js
+{
+    "code": 1,
+    "message": "发送成功",
+    "data": {
+    }
+}
+```
+
+## 7. 文件
+
+### 7.1 上传文件
+
+`POST   /api/file`
+
+| 参数 | 类型 | 必填 | 说明 |
+| ----- | ----- | ---- | ----- |
+| acess_token | string | Y | access_token |
+| file | file | Y | 文件 |
+
+**Response:（点击代码展开）**
+```js
+{
+    "code": 1,
+    "message": "上传成功",
+    "data": {
+        "file_name": "test.jpg",                                                                                // 原始文件名
+        "extension": "jpg",                                                                                     // 文件扩展名
+        "mime_type": "image/jpeg",                                                                              // mime type
+        "size": 138029,                                                                                         // 文件大小，单位字节
+        "file_path": "http://ucenter.szjlxh.com/storage/uploads/20160331/58a1ad3f77de77b0c14c8c3910078885.jpg"  // 文件路径
+    }
+}
+```
+
+## 8. 日志
+
+### 8.1 记录日志
 
 `POST   /api/log`
 
