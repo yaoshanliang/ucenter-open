@@ -159,7 +159,30 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 }
 ```
 
-### 2.2 修改用户信息
+### 2.2 注册
+`POST   /api/user`
+
+| 参数 | 类型 | 必填 | 说明 |
+| ----- | ----- | ---- | ----- |
+| phone | string | Y | 手机号 |
+| password | string | Y | 密码 |
+| code | string | Y | 验证码 |
+
+**Response:（点击代码展开）**
+```js
+{
+    "code": 1,
+    "message": "注册成功",
+    "data": {
+        "user_id": 1002,                            // user_id
+        "username": "18888888888",                  // 用户名
+        "phone": "18888888888",                     // 手机号
+        "created_at": "2016-03-01 12:12:12"         // 创建时间
+    }
+}
+```
+
+### 2.3 修改用户信息
 `PUT   /api/user/info`
 
 | 参数 | 类型 | 必填 | 说明 |
@@ -350,7 +373,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 ```js
 {
     "code": 1,
-    "message": "发送成功",
+    "message": "发送成功",                  // 实际是加入了发件队列
     "data": {
     }
 }
