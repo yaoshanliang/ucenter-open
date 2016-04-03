@@ -373,7 +373,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 ```js
 {
     "code": 1,
-    "message": "发送成功",                  // 实际是加入了发件队列
+    "message": "邮件发送中",                  // 实际是加入了发件队列
     "data": {
     }
 }
