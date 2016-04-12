@@ -115,7 +115,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 ## 2. 用户
 
 ### 2.1 获取用户信息
-`GET   /api/user/info`
+`GET   /api/user`
 
 | 参数 | 类型 | 必填 | 说明 |
 | ----- | ----- | ---- | ----- |
@@ -183,7 +183,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 ```
 
 ### 2.3 修改用户信息
-`PUT   /api/user/info`
+`PUT   /api/user`
 
 | 参数 | 类型 | 必填 | 说明 |
 | ----- | ----- | ---- | ----- |
