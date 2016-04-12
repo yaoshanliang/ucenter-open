@@ -1,6 +1,20 @@
 # API
 
-## 1.登陆
+| 接口 | 方法 | 分组 | 说明 |
+| ----- | ----- | ---- | ----- |
+| [/api/oauth/accessToken](#api-1-12) | POST | OAuth | 获取access_token |
+| [/api/user](#api-2-21) | GET | 用户 | 获取用户信息 |
+| [/api/user](#api-2-22) | POST | 用户 | 用户注册 |
+| [/api/user](#api-2-23) | PUT | 用户 | 修改用户信息 |
+| [/api/user/role](#api-3-31) | GET | 角色 | 获取用户角色 |
+| [/api/user/permission](#api-4-41) | GET | 权限 | 获取用户权限 |
+| [/api/sms/code](#api-5-51) | POST | 短信 | 发送验证码 |
+| [/api/sms/code](#api-5-52) | PUT | 短信 | 验证验证码 |
+| [/api/email](#api-6-61) | POST | 邮件 | 发送邮件 |
+| [/api/file](#api-7-71) | POST | 文件 | 上传文件 |
+| [/api/log](#api-8-81) | POST | 日志 | 记录日志 |
+
+## 1. 登陆
 
 登陆采用 OAuth2 协议，该协议为用户资源的授权提供了一个安全的、开放而又简易的标准。OAuth2 允许第三方开发者在用户授权的前提下访问在用户在 UCenter 存储的各种信息。
 
@@ -159,7 +173,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 }
 ```
 
-### 2.2 注册
+### 2.2 用户注册
 `POST   /api/user`
 
 | 参数 | 类型 | 必填 | 说明 |
