@@ -41,7 +41,7 @@ https://ucenter.szjlxh.com/oauth/authorize?client_id={client_id}
 ![图片](images/ucenter-oauth-authorize.png)
 
 
-+ 授权通过，Ucenter 会将**授权码**回传给应用在 Coding 注册的回调地址`（http://xxx.com/callback?code=xxx）`，应用直接获取授权码 `code` 即可。
++ 授权通过，Ucenter 会将**授权码**回传给应用在 Ucenter 注册的回调地址`（http://xxx.com/callback?code=xxx）`，应用直接获取授权码 `code` 即可。
 
 + 应用向 UCenter 的 Token Endpoint 发送请求：
 
