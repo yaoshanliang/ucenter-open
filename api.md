@@ -6,8 +6,9 @@
 | [/api/user](#api-2-21) | GET | 用户 | 获取用户信息 |
 | [/api/user](#api-2-22) | POST | 用户 | 用户注册 |
 | [/api/user](#api-2-23) | PUT | 用户 | 修改用户信息 |
-| [/api/user/role](#api-3-31) | GET | 角色 | 获取用户角色 |
-| [/api/user/permission](#api-4-41) | GET | 权限 | 获取用户权限 |
+| [/api/user/role](#api-2-24) | GET | 用户 | 获取用户角色 |
+| [/api/user/permission](#api-2-25) | GET | 用户 | 获取用户权限 |
+| [/api/user/rolePermission](#api-2-26) | GET | 用户 | 获取用户角色和权限 |
 | [/api/sms/code](#api-5-51) | POST | 短信 | 发送验证码 |
 | [/api/sms/code](#api-5-52) | PUT | 短信 | 验证验证码 |
 | [/api/email](#api-6-61) | POST | 邮件 | 发送邮件 |
@@ -244,9 +245,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 }
 ```
 
-## 3. 角色
-
-### 3.1 获取用户角色
+### 2.4 获取用户角色
 
 `GET   /api/user/role`
 
@@ -265,23 +264,15 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
             {
                 "id": 2,
                 "name": "developer",
-                "title": "开发者",
-                "permissions": [
-                    {
-                        "id": 2,
-                        "name": "create-app",
-                        "title": "创建应用"
-                    }
-                ]
+                "title": "开发者"
             }
         ]
   }
 }
 ```
 
-## 4. 权限
 
-### 4.1 获取用户权限
+### 2.5 获取用户权限
 
 `GET   /api/user/permission`
 
@@ -327,6 +318,52 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 }
 ```
 
+### 2.6 获取用户角色和权限
+
+`GET   /api/user/rolePermission`
+
+| 参数 | 类型 | 必填 | 说明 |
+| ----- | ----- | ---- | ----- |
+| acess_token | string | Y | access_token |
+
+**Response:（点击代码展开）**
+```js
+{
+    "code": 1,
+    "message": "获取权限成功",
+    "data": {
+        "user_id": 1000,
+        "roles": [
+            {
+                "id": 2,
+                "name": "developer",
+                "title": "开发者"
+                "permissions": [
+                    {
+                        "id": 39,
+                        "name": "create-permission",
+                        "title": "创建权限"
+                    },
+                    {
+                        "id": 38,
+                        "name": "create-app",
+                        "title": "创建应用"
+                    },
+                    {
+                        "id": 37,
+                        "name": "delete-user",
+                        "title": "删除用户"
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
+## 3. 角色
+
+## 4. 权限
 
 ## 5. 短信
 
