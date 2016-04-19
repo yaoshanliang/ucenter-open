@@ -67,7 +67,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 + Response body 中的 `code` 为 1，表示正常接收请求。如果 `code` 非 1，表示请求异常，请参照 `message` 中的返回信息进行处理。
 
 + 使用 `access_token` 访问受保护的资源
-`https://ucenter.szjlxh.com/api/user/info?access_token={access_token}`
+`https://ucenter.szjlxh.com/api/user?access_token={access_token}`
 
 ### 1.2 授权模式
 
