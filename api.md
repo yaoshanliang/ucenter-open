@@ -92,7 +92,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取access_token成功",
     "data": {
         "access_token": "JQrKik8HTWaW2G2Aq2QKh9hYGK0Ntfv4Tc42rpJA",
@@ -117,7 +117,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取access_token成功",
     "data": {
         "access_token": "zmRIEouBx0YzoDgRrOxb1alTx3GiCOAFOAyUrJd5",
@@ -140,7 +140,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取用户信息成功",
     "data": {
         "user_id": 1002,
@@ -186,7 +186,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "注册成功",
     "data": {
         "user_id": 1002,                            // user_id
@@ -211,7 +211,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "修改成功",
     "data": {
         "user_id": 1002,
@@ -256,7 +256,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取角色成功",
     "data": {
         "user_id": 1000,
@@ -283,7 +283,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取权限成功",
     "data": {
         "user_id": 1000,
@@ -329,7 +329,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取权限成功",
     "data": {
         "user_id": 1000,
@@ -379,7 +379,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "发送成功",
     "data": {
     }
@@ -399,7 +399,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "验证成功",
     "data": {
     }
@@ -423,7 +423,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "邮件发送中",                  // 实际是加入了发件队列
     "data": {
     }
@@ -444,7 +444,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "上传成功",
     "data": {
         "file_name": "test.jpg",                                                                                // 原始文件名
@@ -473,7 +473,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "记录成功",
     "data": {
     }
