@@ -15,6 +15,17 @@
 | [/api/file](#api-7-71) | POST | 文件 | 上传文件 |
 | [/api/log](#api-8-81) | POST | 日志 | 记录日志 |
 
+## 0. 返回码
+
+| 返回码 | 说明 |
+| ----- | ----- |
+| 0 | 成功 |
+| 1 | 失败 |
+| 1000 | 错误请求 |
+| 1001 | 未授权 |
+| 1003 | 禁止访问 |
+| 1004 | 未找到资源 |
+
 ## 1. 登陆
 
 登陆采用 OAuth2 协议，该协议为用户资源的授权提供了一个安全的、开放而又简易的标准。OAuth2 允许第三方开发者在用户授权的前提下访问在用户在 UCenter 存储的各种信息。
@@ -92,7 +103,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取access_token成功",
     "data": {
         "access_token": "JQrKik8HTWaW2G2Aq2QKh9hYGK0Ntfv4Tc42rpJA",
@@ -117,7 +128,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取access_token成功",
     "data": {
         "access_token": "zmRIEouBx0YzoDgRrOxb1alTx3GiCOAFOAyUrJd5",
@@ -140,7 +151,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取用户信息成功",
     "data": {
         "user_id": 1002,
@@ -186,7 +197,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "注册成功",
     "data": {
         "user_id": 1002,                            // user_id
@@ -211,7 +222,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "修改成功",
     "data": {
         "user_id": 1002,
@@ -256,7 +267,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取角色成功",
     "data": {
         "user_id": 1000,
@@ -283,7 +294,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取权限成功",
     "data": {
         "user_id": 1000,
@@ -329,7 +340,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取权限成功",
     "data": {
         "user_id": 1000,
@@ -379,7 +390,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "发送成功",
     "data": {
     }
@@ -399,7 +410,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "验证成功",
     "data": {
     }
@@ -423,7 +434,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "邮件发送中",                  // 实际是加入了发件队列
     "data": {
     }
@@ -444,7 +455,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "上传成功",
     "data": {
         "file_name": "test.jpg",                                                                                // 原始文件名
@@ -473,7 +484,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "记录成功",
     "data": {
     }
