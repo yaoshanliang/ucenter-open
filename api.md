@@ -64,7 +64,7 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 **Response:（点击代码展开）**
 ```js
 {
-    "code": 1,
+    "code": 0,
     "message": "获取access_token成功",
     "data": {
         "access_token": "AynyRZKKskMBs4ONjOHUecgAyM2rqpvToo0QTXPA",
