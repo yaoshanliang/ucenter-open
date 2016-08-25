@@ -476,10 +476,18 @@ https://ucenter.szjlxh.com/api/oauth/accessToken?client_id={client_id}&client_se
 | 参数 | 类型 | 必填 | 说明 |
 | ----- | ----- | ---- | ----- |
 | acess_token | string | Y | access_token |
-| type | string | Y | 值 = A/D/S/U 其一|
-| title | string | Y | 显示标题 |
-| data | string | Y | 记录数据 |
-| sql | string | N | 记录SQL |
+| user_id | int | N | 用户ID |
+| request_method | string | N | 请求方法 |
+| request_url | string | N | 请求地址 |
+| request_params | text | N | 请求参数 |
+| request_ip | string | N | 请求IP |
+| user_agent | string | N | 请求user agent |
+| response_code | int | N | 返回码 |
+| response_message | string | N | 返回说明 |
+| response_data | text | N | 返回数据 |
+| request_at | double | N | 请求时间（毫秒） |
+| pushed_at | double | N | 入队时间（毫秒） |
+| poped_at | double | N | 出队时间（毫秒） |
 
 **Response:（点击代码展开）**
 ```js
